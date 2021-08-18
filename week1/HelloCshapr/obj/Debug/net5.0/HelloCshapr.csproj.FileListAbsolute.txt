@@ -1,0 +1,16 @@
+/home/briana/revature/briana_code/week1/HelloCshapr/bin/Debug/net5.0/HelloCshapr
+/home/briana/revature/briana_code/week1/HelloCshapr/bin/Debug/net5.0/HelloCshapr.deps.json
+/home/briana/revature/briana_code/week1/HelloCshapr/bin/Debug/net5.0/HelloCshapr.runtimeconfig.json
+/home/briana/revature/briana_code/week1/HelloCshapr/bin/Debug/net5.0/HelloCshapr.runtimeconfig.dev.json
+/home/briana/revature/briana_code/week1/HelloCshapr/bin/Debug/net5.0/HelloCshapr.dll
+/home/briana/revature/briana_code/week1/HelloCshapr/bin/Debug/net5.0/ref/HelloCshapr.dll
+/home/briana/revature/briana_code/week1/HelloCshapr/bin/Debug/net5.0/HelloCshapr.pdb
+/home/briana/revature/briana_code/week1/HelloCshapr/obj/Debug/net5.0/HelloCshapr.csproj.AssemblyReference.cache
+/home/briana/revature/briana_code/week1/HelloCshapr/obj/Debug/net5.0/HelloCshapr.GeneratedMSBuildEditorConfig.editorconfig
+/home/briana/revature/briana_code/week1/HelloCshapr/obj/Debug/net5.0/HelloCshapr.AssemblyInfoInputs.cache
+/home/briana/revature/briana_code/week1/HelloCshapr/obj/Debug/net5.0/HelloCshapr.AssemblyInfo.cs
+/home/briana/revature/briana_code/week1/HelloCshapr/obj/Debug/net5.0/HelloCshapr.csproj.CoreCompileInputs.cache
+/home/briana/revature/briana_code/week1/HelloCshapr/obj/Debug/net5.0/HelloCshapr.dll
+/home/briana/revature/briana_code/week1/HelloCshapr/obj/Debug/net5.0/ref/HelloCshapr.dll
+/home/briana/revature/briana_code/week1/HelloCshapr/obj/Debug/net5.0/HelloCshapr.pdb
+/home/briana/revature/briana_code/week1/HelloCshapr/obj/Debug/net5.0/HelloCshapr.genruntimeconfig.cache
