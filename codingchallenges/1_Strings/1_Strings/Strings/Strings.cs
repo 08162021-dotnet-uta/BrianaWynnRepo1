@@ -23,13 +23,13 @@ namespace StringManipulationChallenge
 
       //get a string from the user
       Console.WriteLine("Enter a phrase and press enter: ");
-      userInputstring = Console.ReadLine();
+      userInputString = Console.ReadLine();
 
       Console.WriteLine("Please enter a number LESS THAN the length of your string and press enter: ");
       numberLessThanStringLength = int.Parse(Console.ReadLine());
 
       Console.WriteLine("Please enter a character that you want to search your string for and press enter: ");
-      char1 = Console.ReadLine();
+      char1 = Convert.ToChar(Console.ReadLine());
 
       Console.WriteLine("Please enter the index of the element you would like to start with and press enter: ");
       elementNum = int.Parse(Console.ReadLine()) - 1;
@@ -123,7 +123,7 @@ namespace StringManipulationChallenge
     /// <summary>
     /// This method has two string parameters. It will:
     /// 1) concatenate the two strings with a space between them.
-    /// 2) return the new string.
+    /// 2) return the new string.dot
     /// HINT: You will need to get the users first and last name in the 
     /// main method and send them as arguments.
     /// </summary>
@@ -132,7 +132,8 @@ namespace StringManipulationChallenge
     /// <returns></returns>
     public static string ConcatNames(string fName, string lName)
     {
-      return Concat(fName, " ", lName);
+
+      return String.Concat(fName, " ", lName);
     }
   }//end of program
 }
