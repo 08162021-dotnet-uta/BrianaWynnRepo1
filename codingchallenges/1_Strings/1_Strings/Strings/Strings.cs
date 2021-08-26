@@ -123,7 +123,7 @@ namespace StringManipulationChallenge
     /// <summary>
     /// This method has two string parameters. It will:
     /// 1) concatenate the two strings with a space between them.
-    /// 2) return the new string.dot
+    /// 2) return the new string.dotc
     /// HINT: You will need to get the users first and last name in the 
     /// main method and send them as arguments.
     /// </summary>

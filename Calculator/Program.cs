@@ -1,18 +1,40 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Calculator
 {
-    class Program
+  class Program
+  {
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
-        {
-            // input stuff
-            var input1 = int.Parse(Console.ReadLine()); //type inference
-            var input2 = int.Parse(Console.ReadLine());
-            // compute stuff
-            var compute = input1 + input2; 
-            // output stuff
-            Console.WriteLine(compute);
-        }
+      // Robot droid = new Robot();
+      // droid.SetRobot(32);
+      // droid.Output();
+
+      List<int> names = new List<int>() { 0, 1, 2, 4, 5 };
+      //names.ElementAt(0);
+
+
+      Console.WriteLine(names.ElementAt(1));
+
     }
+  }
+
+  class Robot
+  {
+    string type;
+    double speed;
+
+    public void SetRobot(double speed)
+    {
+      type = "hover";
+      this.speed = speed;
+    }
+
+    public void Output()
+    {
+      Console.WriteLine(type + "bot has speed " + speed);
+    }
+
+  }
 }
