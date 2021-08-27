@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Project0.StoreApplication.Storage.Adapters;
 using Project0.StoreApplication.Domain.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Project0.StoreApplication.Storage.Repositories
 {
@@ -88,6 +89,12 @@ namespace Project0.StoreApplication.Storage.Repositories
 
       return customers;
     }
+
+    // private readonly DBAdapter _da = new DBAdapter();
+    // public List<Customer> GetCustomers()
+    // {
+    //   return _da.Customers.FromSqlRaw("Select Name from Customer.Customer").ToList();
+    // }
 
 
 
