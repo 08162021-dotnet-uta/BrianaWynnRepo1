@@ -12,7 +12,7 @@ namespace Project0.StoreApplication.Storage.Repositories
   {
     private static StoreRepository _storeRepoInstance = null;
     private static readonly FileAdapter _fa = FileAdapter.GetFileAdapterInstance();
-    public static StoreRepository GetStoreStoreRepositoryInstance()
+    public static StoreRepository GetStoreRepositoryInstance()
     {
 
       if (_storeRepoInstance == null)
@@ -21,6 +21,7 @@ namespace Project0.StoreApplication.Storage.Repositories
       }
       return _storeRepoInstance;
     }
+
     // public List<Store> Stores { get; set; }
     // //List<Store> Stores = new List<Store>();
     // private static StoreRepository _instance = new StoreRepository();

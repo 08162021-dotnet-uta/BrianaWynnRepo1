@@ -24,7 +24,7 @@ namespace Project0.StoreApplication.Client.Singletons
     }
 
     private static StoreSingleton _storeSingletonInstance = null;
-    private static readonly StoreRepository _storeRepoInstance = StoreRepository.GetStoreStoreRepositoryInstance();
+    private static readonly StoreRepository _storeRepoInstance = StoreRepository.GetStoreRepositoryInstance();
     /// <summary>
     /// Setup a store singleton that can access the store repository for retriving the stores. 
     /// The client program.cs should use this instance
@@ -64,7 +64,10 @@ namespace Project0.StoreApplication.Client.Singletons
       }
 
     }
-
+    /// <summary>
+    /// This method is generic and should be moved to where anyone could call it
+    /// </summary>
+    /// <returns></returns>
     public int CaptureInput()
     {
       //storeOutput();
@@ -76,13 +79,16 @@ namespace Project0.StoreApplication.Client.Singletons
 
       return selected;
     }
-    public void PrintSelected()
+
+    public void PrintSelectedStore()
     {
 
       //confirm user selection
       Console.WriteLine("You selected: " + _storeRepoInstance.SelectStoreName(_storeSingletonInstance.CaptureInput()));
 
     }
+
+
 
 
 

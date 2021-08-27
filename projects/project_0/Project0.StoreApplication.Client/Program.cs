@@ -13,13 +13,26 @@ namespace Project0.StoreApplication.Client
   {
 
     // private Program p = new Program();
-    private static readonly StoreSingleton singleton1 = StoreSingleton.GetStoreSingletonInstance();
+    private static readonly StoreSingleton _singletonS = StoreSingleton.GetStoreSingletonInstance();
+    private static readonly CustomerSingleton _singletonC = CustomerSingleton.GetCustomerSingletonInstance();
+    private static readonly ProductSingleton _singletonP = ProductSingleton.GetProductSingletonInstance();
+
     static void Main(string[] args)
     {
       //var singleton1 = StoreSingleton.GetStoreSingletonInstance();
-      singleton1.PrintStoreNames();
-      singleton1.PrintSelected();
 
+      //singletonC.PrintCustomerNames();
+
+
+      _singletonC.PrintCustomerNames();
+      _singletonC.PrintSelectedCustomer();
+      _singletonS.PrintStoreNames();
+      _singletonS.PrintSelectedStore();
+      _singletonP.PrintProductNames();
+      _singletonP.PrintSelectedProduct();
+      _singletonP.ContinuePurchase();
+
+      //_singletonP.InitialWrite();
 
     }
   }

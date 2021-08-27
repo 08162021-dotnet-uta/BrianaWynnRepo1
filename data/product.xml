@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfProduct xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Product>
+    <Name>Beyond the Vale - expansion pack</Name>
+    <Sku>34950</Sku>
+    <Quantity>0</Quantity>
+    <Price>10.25</Price>
+  </Product>
+  <Product>
+    <Name>Death March in Valmedia</Name>
+    <Sku>0</Sku>
+    <Quantity>0</Quantity>
+    <Price>40.97</Price>
+  </Product>
+  <Product>
+    <Name>Starter's Guide</Name>
+    <Sku>0</Sku>
+    <Quantity>0</Quantity>
+    <Price>25.25</Price>
+  </Product>
+</ArrayOfProduct>

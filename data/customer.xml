@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfCustomer xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Customer>
+    <Name>Susan O'Boyle</Name>
+  </Customer>
+  <Customer>
+    <Name>Jeffry Jeffry</Name>
+  </Customer>
+  <Customer>
+    <Name>Winnie Wynn</Name>
+  </Customer>
+</ArrayOfCustomer>
