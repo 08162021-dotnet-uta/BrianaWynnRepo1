@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Project0_StoreApplication_Domain
+namespace Project0.StoreApplication.Domain
 {
     public class Class1
     {

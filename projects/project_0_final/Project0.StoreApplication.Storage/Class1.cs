@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Project0_StoreApplication_Storage
+namespace Project0.StoreApplication.Storage
 {
     public class Class1
     {

@@ -1,7 +1,7 @@
 using System;
 using Xunit;
 
-namespace Project0_StoreApplication_Testing
+namespace Project0.StoreApplication.Testing
 {
     public class UnitTest1
     {

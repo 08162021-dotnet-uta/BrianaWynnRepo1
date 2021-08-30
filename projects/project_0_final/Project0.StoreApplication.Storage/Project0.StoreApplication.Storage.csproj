@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
-    <ProjectReference Include="..\Project0_StoreApplication_Domain\Project0_StoreApplication_Domain.csproj" />
+    <ProjectReference Include="..\Project0.StoreApplication.Domain\Project0.StoreApplication.Domain.csproj" />
   </ItemGroup>
 
   <PropertyGroup>
