@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfStore xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Store>
-    <Name>Aldi</Name>
+    <StoreID>1</StoreID>
+    <Name>Sword &amp; Spell - Martinville</Name>
     <Location>312 Penn</Location>
   </Store>
   <Store>
-    <Name>Sams</Name>
+    <StoreID>2</StoreID>
+    <Name>Sword &amp; Spell - Liesburg</Name>
   </Store>
   <Store>
-    <Name>Bills</Name>
+    <StoreID>3</StoreID>
+    <Name>Sword &amp; Spell - Gatlyn</Name>
   </Store>
 </ArrayOfStore>

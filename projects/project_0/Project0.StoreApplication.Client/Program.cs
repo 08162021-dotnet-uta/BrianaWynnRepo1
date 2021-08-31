@@ -4,6 +4,7 @@ using Project0.StoreApplication.Domain.Models;
 using System.Linq;
 using Project0.StoreApplication.Storage.Repositories;
 using Project0.StoreApplication.Client.Singletons;
+using Serilog;
 
 
 namespace Project0.StoreApplication.Client
@@ -12,103 +13,128 @@ namespace Project0.StoreApplication.Client
   class Program
   {
 
-    // private Program p = new Program();
-    private static readonly StoreSingleton _singletonS = StoreSingleton.GetStoreSingletonInstance();
-    private static readonly CustomerSingleton _singletonC = CustomerSingleton.GetCustomerSingletonInstance();
-    private static readonly ProductSingleton _singletonP = ProductSingleton.GetProductSingletonInstance();
+        /// <summary>
+        /// returns a store singleton 
+        /// </summary>
+        private static readonly StoreSingleton _singletonS = StoreSingleton.GetStoreSingletonInstance();
+        /// <summary>
+        /// returns a customer singleton
+        /// </summary>
+        private static readonly CustomerSingleton _singletonC = CustomerSingleton.GetCustomerSingletonInstance();
+        /// <summary>
+        /// returns a product singleton
+        /// </summary>
+        private static readonly ProductSingleton _singletonP = ProductSingleton.GetProductSingletonInstance();
+        /// <summary>
+        /// returns an order singleton
+        /// </summary>
+        private static readonly OrderSingleton _singletonO = OrderSingleton.GetOrderSingletonInstance();
+        private static string _logPath = @"C:\Users\bnwyn\source\repos\08162021-dotnet-uta\BrianaWynnRepo1\projects\project_0\data\logs.txt";
 
-    static void Main(string[] args)
-    {
-      //var singleton1 = StoreSingleton.GetStoreSingletonInstance();
+        static void Main(string[] args)
+        {
 
-      //singletonC.PrintCustomerNames();
+            DetermineRunPath();
+            //Log.Logger = new LoggerConfiguration().WriteTo.File(_logPath).CreateLogger();
 
 
-      _singletonC.PrintCustomerNames();
-      _singletonC.PrintSelectedCustomer();
-      _singletonS.PrintStoreNames();
-      _singletonS.PrintSelectedStore();
-      _singletonP.PrintProductNames();
-      _singletonP.PrintSelectedProduct();
-      _singletonP.ContinuePurchase();
+        }
+        
+        /// <summary>
+        /// This is the order of commands that execute when a customer wants to buy a product
+        /// </summary>
+        public static void RunCustomerBuy()
+        {
+            _singletonC.PrintCustomerNames();
+            var selectedCustomer = _singletonC.CaptureCustomerInput();
+            _singletonC.PrintSelectedCustomer(selectedCustomer);
+            var customerID = _singletonC.SelectedCustomerID(selectedCustomer);
 
-      //_singletonP.InitialWrite();
+            _singletonS.PrintStoreNames();
+            var selectedStore = _singletonS.CaptureStoreInput();
+            _singletonS.PrintSelectedStore(selectedStore);
+            var storeID = _singletonS.SelectedStoreID(selectedStore);
 
+            _singletonP.PrintProductNames();
+            var selectedProduct = _singletonP.CaptureProductInput();
+            _singletonP.PrintSelectedProduct(selectedProduct);
+            var productID = _singletonP.SelectedProductID(selectedProduct);
+
+
+            bool buy = _singletonP.ConfirmPurchase();
+
+            _singletonO.AddOrder(buy,storeID ,productID ,customerID);
+        }
+
+        /// <summary>
+        /// This is the methods that execute when the customer would like to review an order
+        /// </summary>
+        public static void RunCustomerReview()
+        {
+            _singletonC.PrintCustomerNames();
+            var selectedCustomer = _singletonC.CaptureCustomerInput();
+            _singletonC.PrintSelectedCustomer(selectedCustomer);
+            var customerID = _singletonC.SelectedCustomerID(selectedCustomer);
+
+           List<Order> customerOrders =  _singletonO.ReadCustomerOrders(customerID);
+
+           //Console.WriteLine("you purchased: {0} from {1}", _singletonP.GetProductName(customerOrders[0].ProductID - 1), _singletonS.GetStoreName(customerOrders[0].StoreID - 1));
+
+
+        }
+        /// <summary>
+        /// these are the methods that execute when the store wants to review order history
+        /// </summary>
+        public static void RunStoreReview()
+        {
+            _singletonS.PrintStoreNames();
+            var selectedStore = _singletonS.CaptureStoreInput();
+            _singletonS.PrintSelectedStore(selectedStore);
+            var storeID = _singletonS.SelectedStoreID(selectedStore);
+
+            List<Order> storeOrders = _singletonO.ReadStoreOrders(storeID);
+
+            //Console.WriteLine("{0} purchased: {1}", _singletonC.GetCustomerName(storeOrders[0].CustomerID - 1), _singletonS.GetProductName(customerOrders[0].ProductID - 1));
+        }
+
+        /// <summary>
+        /// This is the method that holds the logic for determining which path to execute
+        /// The paths possible are RunCustomerBuy, RuCustomerReview, RunStoreReview
+        /// </summary>
+        public static void DetermineRunPath()
+        {
+            Console.WriteLine("Would you like to run as a manager \n [1] -No \n Enter 1 if you are not a manager");
+            int selected;
+            bool result = int.TryParse(Console.ReadLine(), out selected);
+
+            if(selected == 1234)
+            {
+                RunStoreReview();
+            }
+            else 
+            {
+                
+                int customerSelected;
+                bool customerResult = false;
+                do
+                {
+                    Console.WriteLine("Welcome to Sword & Spell: What would you like to do today? \n [1] Make a purchase \n [2] Review Past Orders \n Please Enter the corresponding number: ");
+                    customerResult = int.TryParse(Console.ReadLine(), out customerSelected);
+                } while (!customerResult);
+
+                if(customerSelected == 1)
+                {
+                    RunCustomerBuy();
+                }
+                else if (customerSelected == 2){
+                    RunCustomerReview();
+                }
+            }
+        }        
     }
-  }
 }
 
 
 
 
 
-// public static List<Store> createStores()
-// {
-//   // create a store collection
-//   List<Store> stores = new List<Store>(); //I believe this should actually be a list of store objects not string
-//   stores.Add(new Store());
-//   stores.Add(new Store());
-//   stores.Add(new Store());
-//   return stores;
-// }
-
-//     public static List<Store> storeOutput()
-//     {
-//       //view store locations
-//       //print store location to console
-
-//       //get the repository and stores from it
-//       StoreRepository allStores = new StoreRepository();
-//       List<Store> storeList = new List<Store>();
-
-//       foreach (var store in allStores.Stores)
-//       {
-//         Console.WriteLine(store.Name);
-//         storeList.Add(store);
-
-//       }
-//       return storeList;
-//     }
-
-//     public static int CaptureInput()
-//     {
-//       //storeOutput();
-
-//       //select one of the presented stores
-//       //read the user input
-//       Console.WriteLine("Make a selection");
-//       var selected = int.Parse(Console.ReadLine()) - 1;
-
-//       return selected;
-//     }
-
-//     public static void PrintSelected()
-//     {
-
-//       //confirm user selection
-//       Console.WriteLine("You selected: " + storeOutput()[CaptureInput()].Name);
-
-//     }
-
-//     public static void AvailableProducts()
-//     {
-//       //check the availability of products before printing
-//     }
-
-//     public static List<Product> PrintProducts()
-//     {
-//       //print out the list of available products
-//       ProductRepository allProducts = new ProductRepository();
-//       List<Product> productList = new List<Product>();
-
-//       Console.WriteLine("Here are the available products at this store: ");
-
-//       foreach (var product in allProducts.products)
-//       {
-//         Console.WriteLine(product.Name);
-//         productList.Add(product);
-
-//       }
-//       return productList;
-
-//     }

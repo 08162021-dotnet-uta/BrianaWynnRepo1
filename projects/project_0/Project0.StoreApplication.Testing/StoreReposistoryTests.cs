@@ -6,27 +6,27 @@ namespace Project0.StoreApplication.Testing
 {
   public class StoreRepositoryTests
   {
-    [Fact]
+    //[Fact]
 
-    public void Test_StoreCollection()
-    {
-      //arrange = instance of the entity to test
-      var sut = new StoreRepository();
+    //public void Test_StoreCollection()
+    //{
+    //  //arrange = instance of the entity to test
+    //  var sut = new StoreRepository();
 
-      // act = execute sut for data
-      var actual = sut.Stores;
+    //  // act = execute sut for data
+    //  var actual = sut.Stores;
 
-      //assert = test itself
-      Assert.NotNull(actual);
-    }
+    //  //assert = test itself
+    //  Assert.NotNull(actual);
+    //}
 
-    public void Test_OneStore()
-    {
-      var sut = new StoreRepositoryTests();
+    //public void Test_OneStore()
+    //{
+    //  var sut = new StoreRepositoryTests();
 
-      var store = sut.GetStore();
+    //  var store = sut.GetStore();
 
-      Assert.NotNull(store);
-    }
+    //  Assert.NotNull(store);
+    //}
   }
 }

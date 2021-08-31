@@ -7,4 +7,4 @@ build_property.PublishSingleFile =
 build_property.IncludeAllContentForSelfExtract = 
 build_property._SupportedPlatformList = Android,iOS,Linux,macOS,Windows
 build_property.RootNamespace = HelloCshapr
-build_property.ProjectDir = /home/briana/revature/briana_code/week1/HelloCshapr/
+build_property.ProjectDir = C:\Users\bnwyn\Source\Repos\08162021-dotnet-uta\BrianaWynnRepo1\week1\HelloCshapr\

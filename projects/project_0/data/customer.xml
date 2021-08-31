@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfCustomer xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Customer>
+    <CustomerID>1</CustomerID>
     <Name>Susan O'Boyle</Name>
   </Customer>
   <Customer>
+    <CustomerID>2</CustomerID>
     <Name>Jeffry Jeffry</Name>
   </Customer>
   <Customer>
+    <CustomerID>3</CustomerID>
     <Name>Winnie Wynn</Name>
   </Customer>
 </ArrayOfCustomer>

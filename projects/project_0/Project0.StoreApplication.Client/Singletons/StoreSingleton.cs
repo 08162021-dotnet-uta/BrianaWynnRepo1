@@ -12,22 +12,19 @@ namespace Project0.StoreApplication.Client.Singletons
   /// </summary>
   public class StoreSingleton
   {
-
-    // private static StoreSingleton _storeSingletonInstance = new StoreSingleton();
-    // public static readonly StoreRepository storeRepo = StoreRepository.GetStoreRepoInstance();
-
-    // public List<Store> Stores { get; private set; }
-
+    /// <summary>
+    /// private constructor for singleton design pattern
+    /// </summary>
     private StoreSingleton()
     {
-      //Stores = storeRepo.Stores;
+      
     }
 
     private static StoreSingleton _storeSingletonInstance = null;
     private static readonly StoreRepository _storeRepoInstance = StoreRepository.GetStoreRepositoryInstance();
+   
     /// <summary>
-    /// Setup a store singleton that can access the store repository for retriving the stores. 
-    /// The client program.cs should use this instance
+    /// returns the instance of storeSingleton that's available
     /// </summary>
     /// <returns></returns>
     public static StoreSingleton GetStoreSingletonInstance()
@@ -39,14 +36,13 @@ namespace Project0.StoreApplication.Client.Singletons
       }
       return _storeSingletonInstance;
     }
-
+    
+    /// <summary>
+    /// returns a list of strings which are the names of the stores
+    /// </summary>
+    /// <returns></returns>
     public List<String> ConvertStores()
     {
-      //   foreach (var store in storeRepo.Stores)
-      //   {
-      //     Console.WriteLine(store.Name);
-      //   }
-      //Create a store
       List<String> storeList = new List<string>();
       foreach (var store in _storeRepoInstance.ReadAllStores())
       {
@@ -54,7 +50,10 @@ namespace Project0.StoreApplication.Client.Singletons
       }
       return storeList;
     }
-
+    /// <summary>
+    /// Print the names of the stores
+    /// uses the ConvertStores() method
+    /// </summary>
     public void PrintStoreNames()
     {
       List<String> newStrings = _storeSingletonInstance.ConvertStores();
@@ -65,10 +64,12 @@ namespace Project0.StoreApplication.Client.Singletons
 
     }
     /// <summary>
-    /// This method is generic and should be moved to where anyone could call it
+    /// Alerts the user to make a selection
+    /// returns selection -1 as an integer
+    /// selection is meant for indexing into list
     /// </summary>
     /// <returns></returns>
-    public int CaptureInput()
+    public int CaptureStoreInput()
     {
       //storeOutput();
 
@@ -80,21 +81,46 @@ namespace Project0.StoreApplication.Client.Singletons
       return selected;
     }
 
-    public void PrintSelectedStore()
+    /// <summary>
+    /// prints the selected store
+    /// </summary>
+    /// <param name="s"></param>
+    public void PrintSelectedStore(int s)
     {
 
       //confirm user selection
-      Console.WriteLine("You selected: " + _storeRepoInstance.SelectStoreName(_storeSingletonInstance.CaptureInput()));
+      Console.WriteLine("You selected: " + _storeRepoInstance.SelectStoreName(s));
 
     }
+        /// <summary>
+        /// initial write to store.xml to preload available stores
+        /// </summary>
+        public void InitialWrite()
+        {
+            _storeRepoInstance.InitialWriteToFile();
 
+        }
 
+        /// <summary>
+        /// returns store id from file storage through store repository instance
+        /// </summary>
+        /// <param name="storeKey"></param>
+        /// <returns></returns>
+        
+        public byte SelectedStoreID(int storeKey)
+        {
+            return _storeRepoInstance.SelectStoreID(storeKey);
+        }
 
+        /// <summary>
+        /// returns a selected store name from file storage through store repository
+        /// </summary>
+        /// <param name="storeKey"></param>
+        /// <returns></returns>
+        public string GetStoreName(int storeKey)
+        {
+            return _storeRepoInstance.SelectStoreName(storeKey);
+        }
 
-
-
-
-
-
-  }
+    }
 }
