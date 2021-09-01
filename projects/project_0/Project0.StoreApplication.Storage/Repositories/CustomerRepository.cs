@@ -107,9 +107,11 @@ namespace Project0.StoreApplication.Storage.Repositories
         /// </summary>
         /// <param name="customerKey"></param>
         /// <returns></returns>
-        public byte SelectCustomerID(int customerKey)
+        /// 
+
+        public int SelectCustomerID(int customerKey)
         {
-            return ReadSpecificCustomer(customerKey).CustomerID;
+            return ReadSpecificCustomer(customerKey).CustomerID; 
         }
 
         /// <summary>

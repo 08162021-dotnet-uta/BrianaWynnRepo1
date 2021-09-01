@@ -1,0 +1,24 @@
+2021-08-31 18:28:18.870 -07:00 [INF] You requested the user's customer input: 0
+2021-08-31 18:28:18.881 -07:00 [INF] You retrieved the customerID from file storage: 1
+2021-08-31 18:28:19.976 -07:00 [INF] You requested the user's input 0 and storeID 1
+2021-08-31 18:28:22.006 -07:00 [INF] You requested the user's product input 0 and retrieved productID 1
+2021-08-31 20:06:34.459 -07:00 [WRN] I'm still in the do while loop
+2021-08-31 20:10:04.190 -07:00 [INF] User Input for selecting run path -- should be 1 or 2 0
+2021-08-31 20:10:04.201 -07:00 [WRN] I'm still in the do while loop
+2021-08-31 20:10:06.778 -07:00 [INF] User Input for selecting run path -- should be 1 or 2 0
+2021-08-31 20:10:06.779 -07:00 [WRN] I'm still in the do while loop
+2021-08-31 20:10:10.488 -07:00 [INF] User Input for selecting run path -- should be 1 or 2 0
+2021-08-31 20:10:10.488 -07:00 [WRN] I'm still in the do while loop
+2021-08-31 20:10:37.342 -07:00 [INF] User Input for selecting run path -- should be 1 or 2 1
+2021-08-31 20:10:37.342 -07:00 [WRN] I'm still in the do while loop
+2021-08-31 20:10:40.146 -07:00 [INF] You requested the user's customer input: 0
+2021-08-31 20:10:40.151 -07:00 [INF] You retrieved the customerID from file storage: 1
+2021-08-31 20:10:42.964 -07:00 [INF] You requested the user's input 1 and storeID 2
+2021-08-31 20:56:07.780 -07:00 [INF] User Input for selecting run path -- should be 1 or 2 1
+2021-08-31 20:56:07.787 -07:00 [WRN] I'm still in the do while loop
+2021-08-31 20:56:10.999 -07:00 [INF] You requested the user's customer input: 1
+2021-08-31 20:56:11.001 -07:00 [INF] You retrieved the customerID from file storage: 2
+2021-08-31 20:56:13.895 -07:00 [INF] You requested the user's input 2 and storeID 3
+2021-08-31 20:56:17.591 -07:00 [INF] You requested the user's product input 1 and retrieved productID 2
+2021-08-31 20:56:19.831 -07:00 [INF] Does the Customer Want to buy the product: True 
+2021-08-31 20:56:21.167 -07:00 [INF] Customer decided to run as a buyer

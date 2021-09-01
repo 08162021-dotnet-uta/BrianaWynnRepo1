@@ -75,7 +75,7 @@ namespace Project0.StoreApplication.Storage.Repositories
         /// </summary>
         /// <param name="storeKey"></param>
         /// <returns></returns>
-        public byte SelectStoreID(int storeKey)
+        public int SelectStoreID(int storeKey)
         {
             return Select(storeKey).StoreID;
         }

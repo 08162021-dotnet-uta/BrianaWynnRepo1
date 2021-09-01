@@ -53,7 +53,7 @@ namespace Project0.StoreApplication.Storage.Repositories
         {           
             orders.Add(o);
 
-            _da.Database.ExecuteSqlRaw("insert into Store.[Order](CustomerID,StoreID,ProductID,Activity) values({0},{1},{2},{3})", o.CustomerID, o.StoreID, o.ProductID, 1);
+            _da.Database.ExecuteSqlRaw("insert into Store.[Order](CustomerID,StoreID,ProductID) values({0},{1},{2})", o.CustomerID, o.StoreID, o.ProductID);
             
          }
 
@@ -62,7 +62,7 @@ namespace Project0.StoreApplication.Storage.Repositories
         /// </summary>
         /// <param name="customerKey"></param>
         /// <returns></returns>
-        public List<Order> ReadSpecificOrder(byte customerKey)
+        public List<Order> ReadSpecificOrder(int customerKey)
         {
             //_da.Orders.FromSqlRaw("select * from Store.[Order] where CustomerID = {0}", customerKey).ToList();
 
@@ -74,10 +74,9 @@ namespace Project0.StoreApplication.Storage.Repositories
             //_da.Orders.FromSqlRaw("select * from Store.[Order] where CustomerID = {0}", customerKey).ToList();
             //_da.Orders.FromSqlRaw("Execute dbo.ReturnOrders {0}", customerKey).ToList();
 
+                        
 
-            var result = _da.Orders.FromSqlRaw($"select * from Store.[Order];").ToList();
-
-            return new List<Order>();
+            return _da.Orders.FromSqlInterpolated($"select * from Store.[Order] where customerID = {customerKey};").ToList();
         }
 
         /// <summary>
@@ -85,7 +84,7 @@ namespace Project0.StoreApplication.Storage.Repositories
         /// </summary>
         /// <param name="storeKey"></param>
         /// <returns></returns>
-        public List<Order> ReadSpecificStoreOrder(byte storeKey)
+        public List<Order> ReadSpecificStoreOrder(int storeKey)
         {
             //_da.Orders.FromSqlRaw("select * from Store.[Order] where CustomerID = {0}", customerKey).ToList();
 
@@ -96,7 +95,7 @@ namespace Project0.StoreApplication.Storage.Repositories
             //_da.Orders.FromSqlRaw($"Select * from Store.[Order] where CustomerID = @CustomerID", p1).ToList();
             //_da.Orders.FromSqlRaw("Execute dbo.ReturnOrders {0}", customerKey).ToList();
 
-            return _da.Orders.FromSqlRaw("select * from Store.[Order] where StoreID = {0}", storeKey).ToList();
+            return _da.Orders.FromSqlRaw($"select * from Store.[Order] where StoreID = {storeKey}").ToList();
         }
 
         /// <summary>

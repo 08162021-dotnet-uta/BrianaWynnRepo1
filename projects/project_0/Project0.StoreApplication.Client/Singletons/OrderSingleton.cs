@@ -41,7 +41,7 @@ namespace Project0.StoreApplication.Client.Singletons
         /// <param name="pID"></param>
         /// <param name="cID"></param>
         /// <returns></returns>
-        public bool AddOrder(bool buy, byte sID, byte pID, byte cID)
+        public bool AddOrder(bool buy, int sID, int pID, int cID)
         {
             if (buy)
             {
@@ -64,7 +64,7 @@ namespace Project0.StoreApplication.Client.Singletons
         /// </summary>
         /// <param name="storeKey"></param>
         /// <returns></returns>
-        public List<Order> ReadStoreOrders(byte storeKey)
+        public List<Order> ReadStoreOrders(int storeKey)
         {
             return _orderRepoInstance.ReadSpecificStoreOrder(storeKey);
 
@@ -76,7 +76,7 @@ namespace Project0.StoreApplication.Client.Singletons
         /// </summary>
         /// <param name="customerkey"></param>
         /// <returns></returns>
-        public List<Order>ReadCustomerOrders(byte customerkey)
+        public List<Order>ReadCustomerOrders(int customerkey)
         {
             return _orderRepoInstance.ReadSpecificOrder(customerkey);
         }

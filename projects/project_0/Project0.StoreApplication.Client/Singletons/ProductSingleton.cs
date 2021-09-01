@@ -127,15 +127,20 @@ namespace Project0.StoreApplication.Client.Singletons
 
                 return false;
         }
-            
+
         /// <summary>
         /// asks the product repository instance to grab a specific product 
         /// </summary>
         /// <param name="ProductKey"></param>
         /// <returns></returns>
-        public byte SelectedProductID(int ProductKey)
+        public int SelectedProductID(int ProductKey)
         {
             return _productRepoInstance.ReadSpecificProduct(ProductKey).ProductID;
+        }
+
+        public double GetPrice(int productKey)
+        {
+            return _productRepoInstance.SelectProductPrice(productKey);
         }
 
     }

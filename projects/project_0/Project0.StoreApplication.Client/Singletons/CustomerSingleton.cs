@@ -59,10 +59,10 @@ namespace Project0.StoreApplication.Client.Singletons
         /// </summary>
         /// <param name="customer"></param>
         /// <returns></returns>
-        public string ReadSpecificCustomerName(Customer customer)
+        public string ReadSpecificCustomerName(int customerKey)
         {
 
-          return customer.Name;
+          return _customerRepoInstance.SelectCustomerName(customerKey);
         }
     
         /// <summary>
@@ -114,13 +114,13 @@ namespace Project0.StoreApplication.Client.Singletons
           Console.WriteLine("You selected: " + _customerRepoInstance.SelectCustomerName(s));
 
         }
-    
+
         /// <summary>
         /// returns the customerid from file storage through customer repo instance
         /// </summary>
         /// <param name="customerKey"></param>
         /// <returns></returns>
-        public byte SelectedCustomerID(int customerKey)
+        public int SelectedCustomerID(int customerKey)
         {
             return _customerRepoInstance.SelectCustomerID(customerKey);
         }

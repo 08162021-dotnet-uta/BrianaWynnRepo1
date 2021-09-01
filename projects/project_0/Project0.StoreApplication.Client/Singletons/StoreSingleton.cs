@@ -106,8 +106,8 @@ namespace Project0.StoreApplication.Client.Singletons
         /// </summary>
         /// <param name="storeKey"></param>
         /// <returns></returns>
-        
-        public byte SelectedStoreID(int storeKey)
+
+        public int SelectedStoreID(int storeKey)
         {
             return _storeRepoInstance.SelectStoreID(storeKey);
         }

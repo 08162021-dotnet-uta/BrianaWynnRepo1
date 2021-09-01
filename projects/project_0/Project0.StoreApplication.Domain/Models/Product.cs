@@ -6,7 +6,7 @@ namespace Project0.StoreApplication.Domain.Models
   {
     public string Name { get; set; }
 
-    public byte ProductID { get; set; }
+    public int ProductID { get; set; }
 
     public int Quantity { get; set; }// to check for availability before displaying to the customer
 
