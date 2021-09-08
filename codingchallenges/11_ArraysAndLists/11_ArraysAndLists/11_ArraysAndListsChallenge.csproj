@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp5.0</TargetFramework>
-    <RootNamespace>_6_FlowControl</RootNamespace>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>_11_ArraysAndListsChallenge</RootNamespace>
   </PropertyGroup>
 
 </Project>

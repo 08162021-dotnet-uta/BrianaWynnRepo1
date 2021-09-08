@@ -1,8 +1,8 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp5.0</TargetFramework>
-    <RootNamespace>_6_FlowControlChallenge.Tests</RootNamespace>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>_11_ArraysAndListsChallenge.Tests</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\6_FlowControl\6_FlowControl.csproj" />
+    <ProjectReference Include="..\11_ArraysAndLists\11_ArraysAndListsChallenge.csproj" />
   </ItemGroup>
 
 </Project>
