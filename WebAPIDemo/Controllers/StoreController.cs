@@ -1,87 +1,75 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WebAPIDemoBusinessLayer.Mappers;
+using WebAPIDemoBusinessLayer.Repositories;
+using WebAPIDemoBusinessLayer.ViewModels;
+using WebAPIDemoDataAcess.EntityModels;
+
+// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace WebAPIDemo.Controllers
 {
-    public class StoreController : Controller
+    [Route("api/[controller]/[action]")]
+    [ApiController]
+    public class StoreController : ControllerBase
     {
-        // GET: StoreController
-        public ActionResult Index()
+        StoreRepository _sr = new StoreRepository();
+        StoreMapper _sm = new StoreMapper();
+        // GET: api/<StoreController>
+        [HttpGet]
+        public List<ViewStore> Store()
         {
-            return View();
+            //retrieve the stores
+            //map them to view stores and return them.
+
+            List<Store> stores = new List<Store>();
+
+            foreach (var i in _sr.AllStore())
+            {
+                stores.Add(i);
+            }
+
+            return _sm.StoreToViewStore(stores);
+
+           
         }
 
-        // GET: StoreController/Details/5
-        public ActionResult Details(int id)
+        // GET api/<StoreController>/5
+        [HttpGet("{id}")]
+        public List<ViewStoreOrder> Order(int id)
         {
-            return View();
+            //get the products from all stores
+            //call to the product repo to retrive the products for all stores
+            List<ViewStoreOrder> orders = new List<ViewStoreOrder>();
+
+            foreach (var i in _sr.StoreOrder(id))
+            {
+                orders.Add(i);
+            }
+
+            return orders;
+            
         }
 
-        // GET: StoreController/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: StoreController/Create
+        // POST api/<StoreController>
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public void Post([FromBody] string value)
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
         }
 
-        // GET: StoreController/Edit/5
-        public ActionResult Edit(int id)
+        // PUT api/<StoreController>/5
+        [HttpPut("{id}")]
+        public void Put(int id, [FromBody] string value)
         {
-            return View();
         }
 
-        // POST: StoreController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        // DELETE api/<StoreController>/5
+        [HttpDelete("{id}")]
+        public void Delete(int id)
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: StoreController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: StoreController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
         }
     }
 }

@@ -40,7 +40,27 @@ namespace WebAPIDemo.Controllers
         {
             //get the products from all stores
             //call to the product repo to retrive the products for all stores
-            List<Inventory> inventory = _pr.AllProduct();
+            List<Inventory> inventory = new List<Inventory>();
+           
+            foreach(var i in _pr.AllProduct())
+            {
+                inventory.Add(i);
+            }
+               
+            return inventory;
+        }
+        [HttpGet("{id}")]
+        public List<Inventory> Inventory(int id)
+        {
+            //get the products from all stores
+            //call to the product repo to retrive the products for all stores
+            List<Inventory> inventory = new List<Inventory>();
+
+            foreach (var i in _pr.AllProduct(id))
+            {
+                inventory.Add(i);
+            }
+
             return inventory;
         }
 

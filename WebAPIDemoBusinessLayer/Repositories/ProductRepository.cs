@@ -46,9 +46,26 @@ namespace WebAPIDemoBusinessLayer.Repositories
             //go add the entity model
             //entity model added
             //switch to getting an Inventory
+            Console.WriteLine(entityProducts[0].Description);
 
 
-            return entityProducts;
+            return entityProducts; //count = 21 when you check the infomration is there
+        }
+
+        public List<Inventory> AllProduct(int num)
+        {
+            // convert to viewCustomers. This would be for formatting responsiblities
+            //for demo, just return the entire customer
+
+            List<Inventory> entityProducts = _dbContext.Inventory.FromSqlInterpolated($"SELECT * from Inventory where storeId = {num}").ToList();
+
+            //go add the entity model
+            //entity model added
+            //switch to getting an Inventory
+            Console.WriteLine(entityProducts[0].Description);
+
+
+            return entityProducts; //count = 21 when you check the infomration is there
         }
     }
 }

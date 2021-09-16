@@ -135,6 +135,22 @@ namespace WebAPIDemoDataAcess.EntityModels
                     .HasColumnName("address");
             });
 
+            modelBuilder.Entity<Inventory>(
+             eb =>
+             {
+                 eb.HasNoKey();
+                 eb.ToView("Inventory");
+                 
+             });
+
+            modelBuilder.Entity<ViewStoreOrder>(
+           eb =>
+           {
+               eb.HasNoKey();
+               eb.ToView("ViewStoreOrder");
+
+           });
+
             OnModelCreatingPartial(modelBuilder);
         }
 

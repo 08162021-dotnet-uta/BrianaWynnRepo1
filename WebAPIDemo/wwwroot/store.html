@@ -3,14 +3,66 @@
 <head>
     <meta charset="utf-8" />
     <title>Store Locations</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="shop.css">
+    <link rel="stylesheet" href="Store.css" >
 </head>
 <body>
-    <div class="store__conatianer">
-        
+    <!-- create the nav bar -->
+    <nav class="navbar">
+        <div class="navbar__container">
+            <a href="index.html" id="navbar-logo">D&D Sword & Spell</a>
+            <div id="mobile-menu" class="navbar__toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="navbar__menu">
+                <li class="navbar__item">
+                    <a href="#about" class="navbar__links" id="about-page">About Us</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="shop.html" class="navbar__links" id="shop-page">Shop</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="login.html" class="navbar__links" id="login-page">Login</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="#cart" class="navbar__links" id="cart">Cart</a>
+                </li>
+                <li class="navbar__btn">
+                    <a href="#sign-up/index.html" class="btn" id="sign-up">Register</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+  
+    <!-- shop page: other products -->
+    <div class=" stores" id="products">
+        <h1>Stores</h1>
+        <div class="store__wrapper">
+            <div class="stores__card">
+                <h2>Store Name</h2>
+                <p>Store Location</p>
+                <div  class=" stores__btn"><button onclick="window.location.href= 'store1.html'">Shop Here</button></div>
+            </div>
+            <div class=" stores__card">
+                <h2>Store Name</h2>
+                <p>Store Location</p>
+                <div class=" stores__btn"><button onclick="window.location.href= 'store2.html'">Shop Here</button></div>
+            </div>
+            <div class=" stores__card">
+                <h2>Store Name</h2>
+                <p>Store Location</p>
+                <div class=" stores__btn"><button onclick="window.location.href= 'store3.html'">Shop Here</button></div>
+            </div>
+        </div>
 
     </div>
 
 
-<script src="store.js"></script>
+    <script src="app.js"></script>
+    <!--<script src="shop.js"></script>-->
+    <script src="store.js"></script>
 </body>
 </html>
