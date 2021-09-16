@@ -1,33 +1,56 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
-using System.Linq;
-using WebAPIDemoDataAcess.EntityModels;
 using WebAPIDemoBusinessLayer.ViewModels;
+using WebAPIDemoBusinessLayer.Repositories;
+using WebAPIDemoBusinessLayer.Mappers;
+using WebAPIDemoDataAcess.EntityModels;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace WebAPIDemo.Controllers
 {
-    [Route("api/[controller]/[action]/{id}")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class CustomersController : ControllerBase
     {
-        
+
 
         //get a reg instance with code dependency
         private readonly ViewCustomer _vc = new ViewCustomer();
-        private readonly CoreDbContext _dbContext = new CoreDbContext();//for testing purposes only. This does not stay here in the final code
-
+       // private readonly CoreDbContext _dbContext = new CoreDbContext();//for testing purposes only. This does not stay here in the final code
+        private readonly CustomerRepository _cr = new CustomerRepository();
+        private readonly CustomerMapper _cm = new CustomerMapper();
 
         // GET: api/<CustomersController>
 
         [HttpGet]
-        public List<ViewCustomer> Customers()
+        public ViewCustomer Login(ViewCustomer c)
         {
-            return _vc.formatCustomers();
+            if (!ModelState.IsValid) return c;
+
+            //send the username and password to business layer to check for that guy
+            //if found returns the userId
+            //if not found returns -1
+
+            //int userId = _cr.LoginCustomer(username, password);
+            return c;
 
         }
+
+        [HttpPost]
+        public ViewCustomer Register(ViewCustomer c)
+        {
+            //ViewCustomer a = new ViewCustomer { FirstName = "ben", LastName = "franklin", Email = "thwothein@gmail.com", PWord = "ethiel" };
+            //use mapper and convert to Customer
+            //call repository to insert the customer
+            Customer cust = _cm.ViewCustomerToCustomer(c);
+            //I added the data, here is the customer I just added
+            //convert it back to view customer
+            ViewCustomer d = _cm.CustomerToViewCustomer(_cr.Register(cust));
+            //return me to the user
+            //d
+            return c;
+        }
+
 
         [HttpGet]
         //public List<Order> CustomerOrders()
@@ -71,5 +94,5 @@ namespace WebAPIDemo.Controllers
         public void Delete(int id)
         {
         }
-    }
-}
+    }//eoc
+}//eon

@@ -11,48 +11,49 @@ namespace WebAPIDemoBusinessLayer.ViewModels
 {
     public class ViewCustomer
     {
-        private CustomerRepository _testRepo = new CustomerRepository();
+        //private CustomerRepository _testRepo = new CustomerRepository();
         public int CustomerId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }
         public string PWord { get; set; }
-        public long? CardNumber { get; set; }
+        //public long? CardNumber { get; set; }
 
        
-        ICustomerValidation _validation;
+        //ICustomerValidation _validation;
 
-        public ViewCustomer(ICustomerValidation custVal)
-        {
-            _validation = custVal;
-        }
+        //public ViewCustomer(ICustomerValidation custVal)
+        //{
+        //    _validation = custVal;
+        //}
 
-        public ViewCustomer()
-        {
-            _validation = new CustomerValidation();
-        }
+        //public ViewCustomer()
+        //{
+        //    _validation = new CustomerValidation();
+        //}
 
 
-        public List<ViewCustomer> formatCustomers()
-        {
-            var entityCustomers = _testRepo.GetCustomers();
-            List<ViewCustomer> formattedCustomers = new List<ViewCustomer>();
+        //public List<ViewCustomer> formatCustomers()
+        //{
+        //    var entityCustomers = _testRepo.GetCustomers();
+        //    List<ViewCustomer> formattedCustomers = new List<ViewCustomer>();
            
 
-            for (int i = 0; i < entityCustomers.Count; i++)
-            {
-                formattedCustomers.Add(new ViewCustomer());
-            }
+        //    for (int i = 0; i < entityCustomers.Count; i++)
+        //    {
+        //        formattedCustomers.Add(new ViewCustomer());
+        //    }
 
-            //set visible properties of the viewCustomer
-            for (int i = 0; i < formattedCustomers.Count; i++)
-            {
-                formattedCustomers[i].FirstName = entityCustomers[i].FirstName;
-                formattedCustomers[i].LastName = entityCustomers[i].LastName;
-            }
+        //    //set visible properties of the viewCustomer
+        //    for (int i = 0; i < formattedCustomers.Count; i++)
+        //    {
+        //        formattedCustomers[i].FirstName = entityCustomers[i].FirstName;
+        //        formattedCustomers[i].LastName = entityCustomers[i].LastName;
+               
+        //    }
 
-            return formattedCustomers;
-        }
+        //    return formattedCustomers;
+        //}
 
 
     }//EOC

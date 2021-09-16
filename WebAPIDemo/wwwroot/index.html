@@ -1,64 +1,157 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+﻿<html lang="en">
+
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport"
-          content="width = device-width, initial-scale = 1.0" />
-    <title>Spell & Sword</title>
-    <link rel="stylesheet" href="styles.css" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sword & Spell</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+          integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="shop.css">
 </head>
+
 <body>
-    <!-- Navbar Section -->
+    <!-- create the nav bar -->
     <nav class="navbar">
         <div class="navbar__container">
-            <a href="#home" id="navbar__logo"> D&D: Sword & Spell </a> 
-            <div class="navbar__toggle" id="mobile-menu">
+            <a href="index.html" id="navbar-logo">D&D Sword & Spell</a>
+            <div id="mobile-menu" class="navbar__toggle">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
             </div>
             <ul class="navbar__menu">
                 <li class="navbar__item">
-                    <a href="#home" class="navbar__links" id="home-page">Home</a>
-                </li>
-                <li class="navbar__item">
-                    <a href="#shop" class="navbar__links" id="shop-page">Shop</a>
-                </li>
-                <li class="navbar__item">
                     <a href="#about" class="navbar__links" id="about-page">About Us</a>
                 </li>
                 <li class="navbar__item">
-                    <a href="#login" class="navbar__links" id="login-page">Login</a>
+                    <a href="shop.html" class="navbar__links" id="shop-page">Shop</a>
                 </li>
                 <li class="navbar__item">
-                    <a href="#cart" class="navbar__links" id=" cart-page">Cart</a>
+                    <a href="login.html" class="navbar__links" id="login-page">Login</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="#cart" class="navbar__links" id="cart">Cart</a>
                 </li>
                 <li class="navbar__btn">
-                    <a href="#sign-up" class="btn" id="sign-up">Register</a>
+                    <a href="#sign-up" class="btn" id="register">Register</a>
                 </li>
             </ul>
         </div>
     </nav>
 
+    <!-- Hero Section -->
+    <div class="hero" id="home">
+        <div class="hero__container">
+            <h1 class="hero__heading">
+                Choose Your <span>Adventure</span>
+            </h1>
+            <p class="hero__description">Unlimited Possibilities</p>
+            <button class="hero__btn">
+                <a href="store.html">Explore</a>
+            </button>
+        </div>
+    </div>
 
+    <!-- Include store selector carosal -->
+    <!--Sign up feature  -->
+        <div class="main" id="sign-up">
+            <div class="main__container">
+                <div class="main__content">
+                    <h1>Join</h1>
+                    <div id="results" class="error">
+
+                        <form id="registration--form" action="/" method="get">
+                            <label class="main__content" for="fname">First Name:</label>
+                            <input type="text" id="fname" class="main__content" required>
+                            <label class="main__content" for="lname">Last Name:</label>
+                            <input type="text" id="lname" class="main__content" required>
+                            <label class="main__content" for="email">Email:</label>
+                            <input type="email" id="useremail" class="main__content" required>
+                            <label class="main__content" for="password">Password:</label>
+                            <input type="password" id="userpassword" class="main__content" required>
+                            <label class="main__content" for="register--user"></label>
+                            <input type="submit" id="register--user" class="main__btn" value="Register">
+                            <!-- <button class="main__btn" id="register_user">
+                             <a href="#">Register</a>
+                            </button> -->
+                        </form>
+                     </div>
+                </div>
+                    <div class="main__img--container">
+                    <div class="main__img--card" id="card-2"><i class="fas fa-users"></i></div>
+                    </div>
+            </div>
+        </div>
+
+    <!-- footer section -->
+    <div class="footer__container">
+        <div class="footer__links">
+            <div class="footer__links--wrapper">
+                <div class="footer__links--items">
+                    <h2> About Us </h2>
+                    <a href="/sign-up">How it works</a>
+                    <a href="/sign-up">Testimonials</a>
+                    <a href="/sign-up">Careers</a>
+                    <a href="/sign-up">Terms of service</a>
+                </div>
+                <div class="footer__links--items">
+                    <h2> About Us </h2>
+                    <a href="/sign-up">How it works</a>
+                    <a href="/sign-up">Testimonials</a>
+                    <a href="/sign-up">Careers</a>
+                    <a href="/sign-up">Terms of service</a>
+                </div>
+            </div>
+            <div class="footer__link--wrapper">
+                <div class="footer__links--items">
+                    <h2> About Us </h2>
+                    <a href="/sign-up">How it works</a>
+                    <a href="/sign-up">Testimonials</a>
+                    <a href="/sign-up">Careers</a>
+                    <a href="/sign-up">Terms of service</a>
+                </div>
+                <div class="footer__links--items">
+                    <h2> About Us </h2>
+                    <a href="/sign-up">How it works</a>
+                    <a href="/sign-up">Testimonials</a>
+                    <a href="/sign-up">Careers</a>
+                    <a href="/sign-up">Terms of service</a>
+                </div>
+            </div>
+        </div>
+
+        <section class="social_media">
+            <div class="social_media--wrap">
+                <div class="footer__logo">
+                    <a href="index.html" id="footer__logo">S&S</a>
+                </div>
+                <p class="website__rights"></p>
+                <div class="social__icons">
+                    <a href="/" class="social__icon--link" target="_blank">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="/" class="social__icon--link" target="_blank">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="/" class="social__icon--link" target="_blank">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="/" class="social__icon--link" target="_blank">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="/" class="social__icon--link" target="_blank">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+
+    <script src="app.js"></script>
+    <script src="register.js"></script>
 </body>
+
 </html>
-
-<!--<button type="button" class="viewCustomers">All Customers</button>
-
-
-   <form>
-       <label for="fname">First Name: </label>
-       <input type="text" id="fname" name=" fname" /><br />
-       <label for="lname">Last Name:</label>
-       <input type="text" id="lname" name=" lname" /><br />
-       <label for="email">Email: </label>
-       <input type="email" id="userEmail" name="userEmail" /><br />
-       <label for="password">Password: </label>
-       <input type="password" id="userPassword" name="userPassword" /><br />
-       <br />
-       <input type="submit" value="Submit" />
-
-   </form>
-
-   <script src="index.js"></script>-->

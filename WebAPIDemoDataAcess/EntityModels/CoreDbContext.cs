@@ -24,6 +24,9 @@ namespace WebAPIDemoDataAcess.EntityModels
         public virtual DbSet<ProductStore> ProductStores { get; set; }
         public virtual DbSet<Store> Stores { get; set; }
 
+        public virtual DbSet<Inventory> Inventory { get; set; }
+        public virtual DbSet<ViewStoreOrder> ViewStoreOrder { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
@@ -39,7 +42,7 @@ namespace WebAPIDemoDataAcess.EntityModels
 
             modelBuilder.Entity<Customer>(entity =>
             {
-                entity.Property(e => e.CardNumber).HasColumnName("cardNumber");
+                //entity.Property(e => e.CardNumber).HasColumnName("cardNumber");
 
                 entity.Property(e => e.Email)
                     .HasMaxLength(100)
@@ -75,6 +78,8 @@ namespace WebAPIDemoDataAcess.EntityModels
                     .WithMany(p => p.Orders)
                     .HasForeignKey(d => d.StoreId)
                     .HasConstraintName("FK__Orders__StoreId__74AE54BC");
+
+                
             });
 
             modelBuilder.Entity<Product>(entity =>
