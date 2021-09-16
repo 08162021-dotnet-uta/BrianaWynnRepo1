@@ -20,14 +20,48 @@ loginform.addEventListener('submit', (e) => {
 
     })
         .then(res => {
-            return res.json()
+            if (!res.ok) {
+                console.log('Not ok')
+                throw new Error(`Network response was not ok (${res.status})`)
+            }
+            else
+            {
+                
+                return res.json()
+            }
+           
         })
         .then(data => {
             console.log(data)
             //var results = document.getElementById('results')
             var results = document.getElementById('login--container')
-            results.innerHTML = `<h2> Thank You For Logging in ${firstName.value}</h2>`
+            var noUser = "Not a user"
+            if (data.firstName.localeCompare(noUser) == 0) {
+
+                results.innerHTML = `<h2> ${data.firstName} </br>  ${data.lastName}</h2>`
+            }
+            else
+            {
+                //var user = { customerId: `${data.customerId}` }
+                sessionStorage.clear()
+                sessionStorage.setItem('user', JSON.stringify(data));
+                var obj = JSON.parse(sessionStorage.getItem('user'));
+                console.log(`session storage object: ${obj}`)
+                results.innerHTML = `<h2> Thank you for logging in ${data.firstName} </h2>`
+
+                setTimeout(function () {
+                    window.location.href = "store.html"
+                }, 3000)
+            }
+
+            
+        //    
+        //    //JSON.parse(sessionStorage.getItem('id'))
+        //    //store the info in sessionStorage must be strings
+        //    //store cart object on local storage must be strings
+            
         })
+        .catch(err => console.log(`There was an error ${err}`))
         //.then(res => {
         //    if (!res.ok) {
         //        console.log('Not ok')

@@ -7,11 +7,11 @@ var email = document.getElementById('useremail')
 var password = document.getElementById('userpassword')
 var results = document.getElementById('results')
 
-form.addEventListener('submit', addUser)
+form.addEventListener('submit', ValidateUserInfo)
 
 
 function ValidateUserInfo(e) {
-  
+    e.preventDefault()
     
     let messages = []
     //check that name meets requirements
@@ -30,17 +30,21 @@ function ValidateUserInfo(e) {
     if (messages.length > 0) {
 
         alert(`${messages.join('\n')}`);
-        e.preventDefault()
-    } 
+       
+    }
+    else {
+        addUser();
+    }
 
 }
 
 
 
-function addUser(e) {
+function addUser() {
     const userData = { firstName: fname.value, lastName: lname.value, email: email.value, pWord: password.value }
-    ValidateUserInfo(e);
-    e.stopPropagation()
+    //ValidateUserInfo(e);
+    //e.stopPropagation()
+    //e.preventDefault()
    
    // ValidateUserInfo(e)
 
@@ -62,7 +66,10 @@ function addUser(e) {
         .then(data => {
             console.log(data)
             var results = document.getElementById('results')
+            var login = document.getElementById('buttonAppear')
             results.innerHTML = `<h2> Thank You For Registering ${fname.value}</h2>`
+            results.innerHTML += '<h2> Please Login </h2>'
+            login.innerHTML = '<button class="main__btn" id="register_user"><a href="login.html">Login</a> </button>'
         })
 
 }

@@ -41,7 +41,7 @@ namespace WebAPIDemoBusinessLayer.Repositories
             //Customer customer = _dbContext.Customers.FromSqlRaw("Select * from customers where FirstName = 'Briana' and LastName= 'Wynn'").FirstOrDefault();
             if (customer == null)
             {
-                Customer notUser = new Customer() { FirstName = ("Not a user") };
+                Customer notUser = new Customer() { FirstName = ("Not a user"), LastName = ("Please Return to Home and Register") };
                 return notUser;
             }else
             {
@@ -54,7 +54,8 @@ namespace WebAPIDemoBusinessLayer.Repositories
         public Customer Register(Customer c)
         {
             //I added the person to the database
-            _dbContext.Customers.FromSqlInterpolated($"insert into Customers (FirstName, LastName, email, pWord) values ({c.FirstName},{c.LastName},{c.Email},{c.PWord}");
+            //_dbContext.Customers.FromSqlInterpolated($"insert into Customers (FirstName, LastName, email, pWord) values ({c.FirstName},{c.LastName},{c.Email},{c.PWord}");
+            _dbContext.Database.ExecuteSqlInterpolated($"insert into Customers (FirstName, LastName, email, pWord) values ({c.FirstName},{c.LastName},{c.Email},{c.PWord})");
             _dbContext.SaveChanges();
 
             //go and grab that same customer
