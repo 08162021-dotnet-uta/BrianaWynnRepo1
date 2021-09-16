@@ -34,17 +34,18 @@ namespace WebAPIDemoBusinessLayer.Repositories
             $"INSERT INTO Customers(FirstName, LastName, email, pWord, cardNumber) Values({cust.FirstName},{cust.LastName},{cust.Email},{cust.PWord},null");
         }
 
-        public int LoginCustomer(string email, string password)
+        public Customer LoginCustomer(Customer c)
         {
-            Customer customer = _dbContext.Customers.FromSqlRaw($"Select * from customer where email = {email} and pWord = {password}").FirstOrDefault();
+            Customer customer = _dbContext.Customers.FromSqlInterpolated($"Select * from customers where FirstName = {c.FirstName} and LastName= {c.LastName}").FirstOrDefault();
 
+            //Customer customer = _dbContext.Customers.FromSqlRaw("Select * from customers where FirstName = 'Briana' and LastName= 'Wynn'").FirstOrDefault();
             if (customer == null)
             {
-
-                return -1;
+                Customer notUser = new Customer() { FirstName = ("Not a user") };
+                return notUser;
             }else
             {
-                return customer.CustomerId;
+                return customer;
             }
             
             

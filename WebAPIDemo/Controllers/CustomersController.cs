@@ -22,17 +22,19 @@ namespace WebAPIDemo.Controllers
 
         // GET: api/<CustomersController>
 
-        [HttpGet]
+        [HttpPost]
         public ViewCustomer Login(ViewCustomer c)
         {
-            if (!ModelState.IsValid) return c;
+            //if (!ModelState.IsValid) return c;
 
-            //send the username and password to business layer to check for that guy
-            //if found returns the userId
-            //if not found returns -1
+            //convert the ViewCustomer into a Customer
+            //call the repository to run the LoginCustomer Method
+            //convert the response back to a ViewCustomer
 
-            //int userId = _cr.LoginCustomer(username, password);
-            return c;
+
+
+
+            return _cm.CustomerToViewCustomer(_cr.LoginCustomer(_cm.ViewCustomerToCustomer(c)));
 
         }
 

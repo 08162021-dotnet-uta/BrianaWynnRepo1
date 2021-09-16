@@ -60,10 +60,19 @@ namespace WebAPIDemoBusinessLayer.Repositories
             //go add the entity model
             //entity model added
             //switch to getting an Inventory
-            Console.WriteLine(entityStoreOrder[0].OrderId);
+            if (entityStoreOrder.Count < 1)
+            {
+                Console.WriteLine("no orders placed at store");
+                entityStoreOrder.Add(new ViewStoreOrder());
+                entityStoreOrder[0].FirstName = "No Orders Placed at Store Location";
+                return entityStoreOrder;
+            }
+            else
+            {
+                return entityStoreOrder;
+            }
 
-
-            return entityStoreOrder;
+          
         }
 
         public List<ViewStoreOrder> StoreOrder(Customer c)
