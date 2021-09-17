@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace WebAPIDemoBusinessLayer.Mappers
 {
-    class OrderFormatter
+    class OrderMapper
     {
+
+
     }
 }

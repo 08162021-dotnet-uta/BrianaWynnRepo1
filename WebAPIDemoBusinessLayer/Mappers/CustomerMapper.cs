@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WebAPIDemoBusinessLayer.Interfaces;
 using WebAPIDemoBusinessLayer.Repositories;
 using WebAPIDemoBusinessLayer.ViewModels;
 using WebAPIDemoDataAcess.EntityModels;
 
 namespace WebAPIDemoBusinessLayer.Mappers
 {
-    public class CustomerMapper
+    public class CustomerMapper: ICustomerMapper
     {
-        private readonly CustomerRepository _cr = new CustomerRepository();
+        
 
         public ViewCustomer CustomerToViewCustomer(Customer c)
         {

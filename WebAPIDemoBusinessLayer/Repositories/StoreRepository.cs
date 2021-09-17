@@ -4,20 +4,29 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WebAPIDemoBusinessLayer.Interfaces;
 using WebAPIDemoDataAcess.EntityModels;
 
 namespace WebAPIDemoBusinessLayer.Repositories
 {
-    public class StoreRepository
+    public class StoreRepository: IStoreRepository 
     {
-        CoreDbContext _dbContext = new CoreDbContext();
+        private readonly CoreDbContext __dbContext;
+
+        
+
+
+        public StoreRepository(CoreDbContext dbContext) {
+
+            __dbContext = dbContext;
+        }
 
         public StoreRepository() { }
 
-    
+        CoreDbContext _dbContext = new CoreDbContext();
 
       
-
+        
         public List<Store> AllStore()
         {
             // convert to viewCustomers. This would be for formatting responsiblities
@@ -28,7 +37,7 @@ namespace WebAPIDemoBusinessLayer.Repositories
             //go add the entity model
             //entity model added
             //switch to getting an Inventory
-            Console.WriteLine(entityStore[0].Address);
+            //Console.WriteLine(entityStore[0].Address);
 
 
             return entityStore; //count = 21 when you check the infomration is there
@@ -75,22 +84,25 @@ namespace WebAPIDemoBusinessLayer.Repositories
           
         }
 
-        public List<ViewStoreOrder> StoreOrder(Customer c)
+        public List<ViewStoreOrder> CustomerOrder(int c)
         {
             // convert to viewCustomers. This would be for formatting responsiblities
             //for demo, just return the entire customer
 
-            List<ViewStoreOrder> entityStoreOrder = _dbContext.ViewStoreOrder.FromSqlInterpolated($"SELECT * from ViewStoreOrder where FirstName = {c.FirstName} and LastName = {c.LastName}").ToList();
+            List<ViewStoreOrder> entityStoreOrder = _dbContext.ViewStoreOrder.FromSqlInterpolated($"SELECT * from ViewStoreOrder where customerId = {c}").ToList();
 
             //go add the entity model
             //entity model added
             //switch to getting an Inventory
-            Console.WriteLine(entityStoreOrder[0].OrderId);
+            //Console.WriteLine(entityStoreOrder[0].OrderId);
 
 
             return entityStoreOrder;
         }
 
-
-    }
-}
+        public List<ViewStoreOrder> StoreOrder(Customer c)
+        {
+            throw new NotImplementedException();
+        }
+    }//eoc
+}//eon

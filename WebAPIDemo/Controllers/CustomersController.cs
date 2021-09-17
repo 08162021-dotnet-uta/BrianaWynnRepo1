@@ -3,6 +3,7 @@ using WebAPIDemoBusinessLayer.ViewModels;
 using WebAPIDemoBusinessLayer.Repositories;
 using WebAPIDemoBusinessLayer.Mappers;
 using WebAPIDemoDataAcess.EntityModels;
+using WebAPIDemoBusinessLayer.Interfaces;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -15,10 +16,20 @@ namespace WebAPIDemo.Controllers
 
 
         //get a reg instance with code dependency
-        private readonly ViewCustomer _vc = new ViewCustomer();
+        //private readonly ViewCustomer _vc = new ViewCustomer();
        // private readonly CoreDbContext _dbContext = new CoreDbContext();//for testing purposes only. This does not stay here in the final code
         private readonly CustomerRepository _cr = new CustomerRepository();
         private readonly CustomerMapper _cm = new CustomerMapper();
+
+        //ICustomerMapper _cmm;
+
+        //public CustomersController() { }
+        //public CustomersController(ICustomerMapper mapper)
+        //{
+        //    _cmm = mapper;
+        //}
+
+
 
         // GET: api/<CustomersController>
 
@@ -50,7 +61,7 @@ namespace WebAPIDemo.Controllers
             ViewCustomer d = _cm.CustomerToViewCustomer(_cr.Register(cust));
             //return me to the user
             //d
-            return c;
+            return d;
         }
 
 

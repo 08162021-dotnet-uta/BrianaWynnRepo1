@@ -206,7 +206,7 @@ main {
     padding: 0 1rem;
 }
 
-.btn {
+.btn, #checkout--btn {
     display: flex;
     justify-content: center;
     align-items: center;

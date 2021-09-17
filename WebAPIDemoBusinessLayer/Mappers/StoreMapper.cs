@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WebAPIDemoBusinessLayer.Interfaces;
 using WebAPIDemoBusinessLayer.ViewModels;
 using WebAPIDemoDataAcess.EntityModels;
 
 namespace WebAPIDemoBusinessLayer.Mappers
 {
-   public class StoreMapper
+   public class StoreMapper: IStoreMapper
     {
+        
         public ViewStore StoreToViewStore(Store s)
         {
             //get a customer from the repo

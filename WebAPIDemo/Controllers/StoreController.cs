@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WebAPIDemoBusinessLayer.Interfaces;
 using WebAPIDemoBusinessLayer.Mappers;
 using WebAPIDemoBusinessLayer.Repositories;
 using WebAPIDemoBusinessLayer.ViewModels;
@@ -17,7 +18,8 @@ namespace WebAPIDemo.Controllers
     public class StoreController : ControllerBase
     {
         StoreRepository _sr = new StoreRepository();
-        StoreMapper _sm = new StoreMapper();
+        IStoreMapper _sm = new StoreMapper();
+        ICustomerMapper _cm = new CustomerMapper();
         // GET: api/<StoreController>
         [HttpGet]
         public List<ViewStore> Store()
@@ -52,6 +54,23 @@ namespace WebAPIDemo.Controllers
 
             return orders;
             
+        }
+
+        [HttpGet("{id}")]
+        public List<ViewStoreOrder> Customer(int id)
+        {
+            //get the products from all stores
+            //call to the product repo to retrive the products for all stores
+            List<ViewStoreOrder> orders = new List<ViewStoreOrder>();
+            //convert from view customer to customer
+           // Customer c = _cm.ViewCustomerToCustomer(cust);
+            foreach (var i in _sr.CustomerOrder(id))
+            {
+                orders.Add(i);
+            }
+
+            return orders;
+
         }
 
         // POST api/<StoreController>

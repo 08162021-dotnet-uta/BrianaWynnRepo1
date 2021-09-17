@@ -1,13 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using WebAPIDemoDataAcess.EntityModels;
 
-#nullable disable
-
-namespace WebAPIDemoDataAcess.EntityModels
+namespace WebAPIDemoBusinessLayer.ViewModels
 {
-    public partial class Order
+    public class ViewOrder
     {
-        public Order()
+        public ViewOrder()
         {
             ProductOrders = new HashSet<ProductOrder>();
         }
@@ -20,7 +22,5 @@ namespace WebAPIDemoDataAcess.EntityModels
         public virtual Customer Customer { get; set; }
         public virtual Store Store { get; set; }
         public virtual ICollection<ProductOrder> ProductOrders { get; set; }
-
-        
     }
 }

@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WebAPIDemoBusinessLayer.Interfaces;
 using WebAPIDemoBusinessLayer.ViewModels;
 using WebAPIDemoDataAcess.EntityModels;
 
 namespace WebAPIDemoBusinessLayer.Mappers
 {
-    public class ProductMapper
+    public class ProductMapper: IProductMapper
     {
         
         public static ViewModelProduct ProductToViewModelProduct(Product p)

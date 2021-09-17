@@ -18,10 +18,6 @@
     <ProjectReference Include="..\WebAPIDemoDataAcess\WebAPIDemoDataAcess.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="NewFolder\" />
-  </ItemGroup>
-
 	
 
 </Project>

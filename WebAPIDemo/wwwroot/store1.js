@@ -1,7 +1,9 @@
 ﻿//works for printing all available product from all stores to the screen
 //var div = document.querySelector(".product__conatianer")
-//var orderDiv = document.querySelector(".order__container")
-//var storeonebtn = document.getElementById("storeone--btn")
+var orderDiv = document.querySelector(".order__container")
+var customerDiv = document.querySelector(".customer__order")
+var storeonebtn = document.getElementById("storeone--btn")
+var customerbtn = document.getElementById("customer--btn")
 
 
 //async function GetStoreInventory() {
@@ -11,14 +13,52 @@
 //}
 
 
-//async function GetStoreOrder() {
-//    const response = await fetch('api/Store/Order/1')
-//    const order = await response.json();
+async function GetStoreOrder() {
+    const response = await fetch('api/Store/Order/1')
+    const order = await response.json();
 
    
 
-//    return order;
-//}
+    return order;
+}
+
+async function GetCustomerOrder() {
+
+    let user = JSON.parse(sessionStorage.getItem('user'))
+    const response = await fetch(`api/Store/Customer/${user.customerId}`)
+    const order = await response.json();
+
+    return order;
+}
+
+customerbtn.addEventListener("click", async () => {
+    let order = [];
+
+
+    try {
+        order = await GetCustomerOrder()
+        //console.log('im here')
+        //console.log(product[0].name)
+        for (var i = 0; i < order.length; i++) {
+            customerDiv.innerHTML += `<p>${order[i].orderId}</p>`
+            customerDiv.innerHTML += `<p>${order[i].firstName}</p>`
+            customerDiv.innerHTML += `<p>${order[i].lastName}</p>`
+            customerDiv.innerHTML += `<p>${order[i].name}</p>`
+            customerDiv.innerHTML += `<p>${order[i].description}</p>`
+            customerDiv.innerHTML += `<p>${order[i].price}</p>`
+            customerDiv.innerHTML += `<p>${order[i].quantity}</p>`
+
+        }
+
+    }
+    catch (e) {
+        console.log("Error!")
+        console.log(e);
+    }
+
+    console.log(order);
+
+})
 
 
 
@@ -46,34 +86,34 @@
 
 //})
 
-//storeonebtn.addEventListener("click", async () => {
-//    let order = [];
+storeonebtn.addEventListener("click", async () => {
+    let order = [];
 
 
-//    try {
-//        order = await GetStoreOrder()
-//        //console.log('im here')
-//        //console.log(product[0].name)
-//        for (var i = 0; i < order.length; i++) {
-//            orderDiv.innerHTML += `<p>${order[i].orderId}</p>`
-//            orderDiv.innerHTML += `<p>${order[i].firstName}</p>`
-//            orderDiv.innerHTML += `<p>${order[i].lastName}</p>`
-//            orderDiv.innerHTML += `<p>${order[i].name}</p>`
-//            orderDiv.innerHTML += `<p>${order[i].description}</p>`
-//            orderDiv.innerHTML += `<p>${order[i].price}</p>`
-//            orderDiv.innerHTML += `<p>${order[i].quantity}</p>`
+    try {
+        order = await GetStoreOrder()
+        //console.log('im here')
+        //console.log(product[0].name)
+        for (var i = 0; i < order.length; i++) {
+            orderDiv.innerHTML += `<p>${order[i].orderId}</p>`
+            orderDiv.innerHTML += `<p>${order[i].firstName}</p>`
+            orderDiv.innerHTML += `<p>${order[i].lastName}</p>`
+            orderDiv.innerHTML += `<p>${order[i].name}</p>`
+            orderDiv.innerHTML += `<p>${order[i].description}</p>`
+            orderDiv.innerHTML += `<p>${order[i].price}</p>`
+            orderDiv.innerHTML += `<p>${order[i].quantity}</p>`
             
-//        }
+        }
 
-//    }
-//    catch (e) {
-//        console.log("Error!")
-//        console.log(e);
-//    }
+    }
+    catch (e) {
+        console.log("Error!")
+        console.log(e);
+    }
 
-//    console.log(order);
+    console.log(order);
 
-//})
+})
 
 //g //my code  //my code to load product to the screen and load previous orders to the screen. uncommit the ability to add previous orders to the screen. but use the below implementation of a cart
 const CART = {
@@ -341,4 +381,76 @@ function addItem(ev) {
 function errorMessage(err) {
     //display the error message to the user
     console.error(err);
+}
+
+let btnbox = document.getElementById('checkout')
+
+
+function ConfirmPurchase() {
+    //retrieve the user and the cart from storage
+    //create a post fetch to send those objects back to the controller
+
+    let confirms = confirm("Are you sure you want to place your order?")
+    if (confirms) {
+
+        let user = JSON.parse(sessionStorage.getItem('user'))
+        let cart = JSON.parse(localStorage.getItem('bkasjbdfkjasdkfjhaksdfjskd'))
+        let store = JSON.parse(localStorage.getItem('Store.Key'))
+        console.log(user)
+        console.log(cart);
+        console.log(store)
+
+        //add the different parts needed for the order
+        //let order = [{ FirstName: user.FirstName, LastName: user.LastName, customerId: user.customerId }, { address: store.address, store.storeId }, {]
+        let order = [user, cart, store]
+
+        //make a post request to send the data to the controller
+        fetch('api/Order/Place', {
+            method: 'POST',
+            headers: {
+                "Accept": 'application/json',
+                "Content-Type": "application/json ; charset=UTF-8"
+            },
+            body: JSON.stringify(order)
+
+
+        })
+            .then(res => {
+                if (!res.ok) {
+                    alert("Order Not Placed Please Try Again Later")
+                        sessionStorage.clear()
+                          localStorage.clear()
+                    console.log('Not ok')
+                    throw new Error(`Network response was not ok (${res.status})`)
+                }
+                else {
+                    btnbox.innerHTML = '<button class="main__btn" id="continue--shopping" onclick = "ContinueShopping()"> Continue Shopping </button>'
+                    btnbox.innerHTML += '<button class="main__btn" id="logout" onclick ="LogOut()"> Sign Out </button>'
+                }
+
+            })
+                .catch(err => console.log(`There was an error ${err}`))
+        //.then(data => {
+        //    console.log(data)
+        //    //var results = document.getElementById('results')
+        //    var results = document.getElementById('login--container')
+        //    var noUser = "Not a user"
+        //    if (data.firstName.localeCompare(noUser) == 0) {
+
+        //        results.innerHTML = `<h2> ${data.firstName} </br>  ${data.lastName}</h2>`
+        //    }
+        //    else {
+        //        //var user = { customerId: `${data.customerId}` }
+        //        sessionStorage.clear()
+        //        sessionStorage.setItem('user', JSON.stringify(data));
+        //        var obj = JSON.parse(sessionStorage.getItem('user'));
+        //        console.log(`session storage object: ${obj}`)
+        //        results.innerHTML = `<h2> Thank you for logging in ${data.firstName} </h2>`
+
+        //        setTimeout(function () {
+        //            window.location.href = "store.html"
+        //        }, 3000)
+        //    }
+    }
+
 }
