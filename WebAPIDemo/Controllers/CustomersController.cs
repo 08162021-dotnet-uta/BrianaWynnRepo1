@@ -3,6 +3,7 @@ using WebAPIDemoBusinessLayer.ViewModels;
 using WebAPIDemoBusinessLayer.Repositories;
 using WebAPIDemoBusinessLayer.Mappers;
 using WebAPIDemoDataAcess.EntityModels;
+using Microsoft.AspNetCore.Authorization;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -21,24 +22,55 @@ namespace WebAPIDemo.Controllers
         private readonly CustomerMapper _cm = new CustomerMapper();
 
         // GET: api/<CustomersController>
-
-        [HttpPost]
-        public ViewCustomer Login(ViewCustomer c)
+        [HttpGet("private")]
+        [Authorize]
+        
+        public IActionResult Private()
         {
-            //if (!ModelState.IsValid) return c;
-
-            //convert the ViewCustomer into a Customer
-            //call the repository to run the LoginCustomer Method
-            //convert the response back to a ViewCustomer
-
-
-
-
-            return _cm.CustomerToViewCustomer(_cr.LoginCustomer(_cm.ViewCustomerToCustomer(c)));
-
+            return Ok(new
+            {
+                Message = "Hello from a private endpoin! You need to be authenticated to see this."
+            });
         }
 
+        [HttpGet("private-scoped")]
+        [Authorize("read:messages")]
+        
+        public IActionResult Scoped()
+        {
+            return Ok(new
+            {
+                Message = "Hello from a private endpoint! You need to be authenticated and have a scope of read:messages to see this."
+            });
+               
+        }
+        
+        //public async Task Login(string returnurl = "/")
+        //{
+        //    //await HttpContext.ChallengeAsync 
+        //}
+        
+        
+        
+        //[HttpPost]
+        //[Authorize]
+        //public ActionResult<string> Login(ViewCustomer c)
+        //{
+        //    //if (!ModelState.IsValid) return c;
+
+        //    //convert the ViewCustomer into a Customer
+        //    //call the repository to run the LoginCustomer Method
+        //    //convert the response back to a ViewCustomer
+
+
+        //    return Ok("You are logged in!");
+
+        //    //return _cm.CustomerToViewCustomer(_cr.LoginCustomer(_cm.ViewCustomerToCustomer(c)));
+
+        //}
+
         [HttpPost]
+
         public ViewCustomer Register(ViewCustomer c)
         {
             //ViewCustomer a = new ViewCustomer { FirstName = "ben", LastName = "franklin", Email = "thwothein@gmail.com", PWord = "ethiel" };

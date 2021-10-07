@@ -13,9 +13,22 @@ loginform.addEventListener('submit', (e) => {
         method: 'POST',
         headers: {
             "Accept": 'application/json',
-            "Content-Type": "application/json ; charset=UTF-8"
+            "Content-Type": "application/json"\
+           
         },
-        body: JSON.stringify(userData)
+        body: {
+            "client_id": "CQBhCCcyXItL7YQVhEB8x1BG1OQ5S6gr",
+            "client_secret": "9qLFoYey1N5hayuN4vea56tqU0DfrCDKfEZxhSDkvSdEN5TrfL3Jibme5V_cN0A8",
+            "audience": "https://swordspell/api",
+            "grant_type": "client_credentials"
+
+            https://dev-16fan1ey.us.auth0.com/authorize?
+                response_type = code | token &
+                client_id=CQBhCCcyXItL7YQVhEB8x1BG1OQ5S6gr&
+            connection=CONNECTION&
+        redirect_uri=https://YOUR_APP/callback&
+        state = STATE
+        }
 
 
     })

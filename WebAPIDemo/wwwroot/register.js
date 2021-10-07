@@ -49,15 +49,14 @@ function addUser() {
    // ValidateUserInfo(e)
 
     //now make the fetch post request
-    fetch('api/Customers/Register', {
+    fetch('https://dev-16fan1ey.us.auth0.com/oauth/token', {
         method: 'POST',
         headers: {
             "Accept": 'application/json',
-            "Content-Type": "application/json ; charset=UTF-8"
-        },
-        body: JSON.stringify(userData)
-         
-       
+            "Content-Type": "application/json"
+        },           
+        body: 
+
 
     })
         .then(res => {
