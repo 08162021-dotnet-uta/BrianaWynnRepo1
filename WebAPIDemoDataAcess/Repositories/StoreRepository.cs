@@ -13,7 +13,7 @@ namespace WebAPIDemoDataAcess.Repositories
         private readonly CoreDbContext _context;
 
         public StoreRepository(CoreDbContext dbContext) {
-
+        
             _context = dbContext;
         }
 

@@ -15,6 +15,7 @@ namespace WebAPIDemoDataAcess.Repositories
         private readonly CoreDbContext _context;
         public CustomerRepository(CoreDbContext context)
         {
+            
             _context = context;
         }
         public List<Customer> GetCustomers()
