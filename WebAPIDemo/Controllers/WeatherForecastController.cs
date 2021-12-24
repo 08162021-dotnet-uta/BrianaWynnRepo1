@@ -27,6 +27,7 @@ namespace WebAPIDemo.Controllers
         public IEnumerable<WeatherForecast> Get()
         {
             var rng = new Random();
+            var counter = 9; // remove later just to push branch
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
                 Date = DateTime.Now.AddDays(index),
