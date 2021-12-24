@@ -20,8 +20,4 @@
     </PackageReference>
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\WebAPIDemoBusinessLayer\WebAPIDemoBusinessLayer.csproj" />
-  </ItemGroup>
-
 </Project>

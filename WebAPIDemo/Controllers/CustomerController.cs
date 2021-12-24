@@ -14,8 +14,8 @@ namespace WebAPIDemo.Controllers
     [ApiController]
     public class CustomerController : ControllerBase
     {
-        private readonly IRepository<ViewCustomer, int> _repo;
-        public CustomerController(IRepository<ViewCustomer, int> repo)
+        private readonly ICustomerRepository _repo;
+        public CustomerController(ICustomerRepository repo)
         {
             _repo = repo;
         }

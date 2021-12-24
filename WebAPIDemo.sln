@@ -7,9 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAPIDemo", "WebAPIDemo\We
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAPIDemoDataAcess", "WebAPIDemoDataAcess\WebAPIDemoDataAcess.csproj", "{E361B5AE-8019-442A-A709-BBC3F0201F43}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAPIDemoBusinessLayer", "WebAPIDemoBusinessLayer\WebAPIDemoBusinessLayer.csproj", "{70F6E9AA-DBE0-4426-9064-71B6FF7632C7}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebDemoTestLayer", "WebDemoTestLayer\WebDemoTestLayer.csproj", "{EBF52153-FC7D-4072-8A19-B6FA2FBBDB6F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebDemoTestLayer", "WebDemoTestLayer\WebDemoTestLayer.csproj", "{EBF52153-FC7D-4072-8A19-B6FA2FBBDB6F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,10 +23,6 @@ Global
 		{E361B5AE-8019-442A-A709-BBC3F0201F43}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E361B5AE-8019-442A-A709-BBC3F0201F43}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E361B5AE-8019-442A-A709-BBC3F0201F43}.Release|Any CPU.Build.0 = Release|Any CPU
-		{70F6E9AA-DBE0-4426-9064-71B6FF7632C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{70F6E9AA-DBE0-4426-9064-71B6FF7632C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{70F6E9AA-DBE0-4426-9064-71B6FF7632C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{70F6E9AA-DBE0-4426-9064-71B6FF7632C7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{EBF52153-FC7D-4072-8A19-B6FA2FBBDB6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{EBF52153-FC7D-4072-8A19-B6FA2FBBDB6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EBF52153-FC7D-4072-8A19-B6FA2FBBDB6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
