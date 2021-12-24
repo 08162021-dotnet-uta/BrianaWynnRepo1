@@ -14,6 +14,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using WebAPIDemoDataAcess.EntityModels;
 using Microsoft.AspNetCore.Rewrite;
+using WebAPIDemo.Mappers;
 
 namespace WebAPIDemo
 {
@@ -36,6 +37,8 @@ namespace WebAPIDemo
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "WebAPIDemo", Version = "v1" });
             });
+
+            services.AddAutoMapper(x => x.AddProfile(new CoreDbMapper()));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -14,10 +14,6 @@
     <ProjectReference Include="..\WebAPIDemoDataAcess\WebAPIDemoDataAcess.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Mappers\" />
-  </ItemGroup>
-
     
 
 
