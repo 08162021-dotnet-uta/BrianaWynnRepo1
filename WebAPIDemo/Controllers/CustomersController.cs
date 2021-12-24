@@ -42,9 +42,6 @@ namespace WebAPIDemo.Controllers
             //call the repository to run the LoginCustomer Method
             //convert the response back to a ViewCustomer
 
-
-
-
             return _cm.CustomerToViewCustomer(_cr.LoginCustomer(_cm.ViewCustomerToCustomer(c)));
 
         }
