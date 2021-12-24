@@ -7,10 +7,7 @@ using System.Threading.Tasks;
 using WebAPIDemoDataAcess.EntityModels;
 
 namespace WebAPIDemoDataAcess.Repositories
-{    //Todo List:
-     //1. Add Exception Handling
-     //2. switch to async methods
-     //3. add xml comments
+{
     public class StoreRepository
     {
         private readonly CoreDbContext _context;

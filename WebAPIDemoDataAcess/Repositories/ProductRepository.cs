@@ -8,13 +8,9 @@ using WebAPIDemoDataAcess.EntityModels;
 
 namespace WebAPIDemoBusinessLayer.Repositories
 {
-    //Todo List:
-    //1. Add Exception Handling
-    //2. switch to async methods
-    //3. add xml comments
     public class ProductRepository
     {
-        private readonly CoreDbContext _context;
+        CoreDbContext _context;
 
         public ProductRepository(CoreDbContext context) 
         {
