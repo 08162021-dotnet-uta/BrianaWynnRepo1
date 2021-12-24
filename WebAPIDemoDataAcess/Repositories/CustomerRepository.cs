@@ -7,15 +7,15 @@ using WebAPIDemoDataAcess.EntityModels;
 namespace WebAPIDemoDataAcess.Repositories
 {
     //Todo List:
-        //1. Add Exception Handling
-        //2. switch to async methods
-        //3. add xml comments
-    public class CustomerRepository
+    //1. Add Exception Handling
+    //2. switch to async methods
+    //3. add xml comments
+    public class CustomerRepository 
     {
         private readonly CoreDbContext _context;
         public CustomerRepository(CoreDbContext context)
         {
-            
+
             _context = context;
         }
         public List<Customer> GetCustomers()
@@ -24,9 +24,9 @@ namespace WebAPIDemoDataAcess.Repositories
             try
             {
                 entityCustomers = _context.Customers.OrderBy(c => c.FirstName).ToList();
-                    //_dbContext.Customers.FromSqlInterpolated($"SELECT * FROM CUSTOMERS").ToList();
+                //_dbContext.Customers.FromSqlInterpolated($"SELECT * FROM CUSTOMERS").ToList();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 entityCustomers = null;
             }
@@ -34,7 +34,7 @@ namespace WebAPIDemoDataAcess.Repositories
             return entityCustomers;
         }
 
-       // public List<Order> GetStoreOrders()
+        // public List<Order> GetStoreOrders()
         //{
         //    List<Order> storeOrders = _context.Orders.FromSqlInterpolated($"SELECT * FROM ORDERS WHERE storeId = 1").ToList();
         //    return storeOrders;
@@ -49,7 +49,7 @@ namespace WebAPIDemoDataAcess.Repositories
                 _context.SaveChanges();
                 status = true;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 status = false;
             }
@@ -63,7 +63,7 @@ namespace WebAPIDemoDataAcess.Repositories
             try
             {
                 Customer customer = _context.Customers.Find(c.CustomerId);
-                if(customer != null && (customer.Email.Equals(c.Email) && customer.PWord.Equals(c.PWord)))
+                if (customer != null && (customer.Email.Equals(c.Email) && customer.PWord.Equals(c.PWord)))
                 {
                     status = 1;
                 }
@@ -72,12 +72,12 @@ namespace WebAPIDemoDataAcess.Repositories
                     status = -99;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 status = -99;
             }
             return status;
-            
+
         }
 
         public bool DeleteCustomer(Customer customer)
@@ -87,7 +87,7 @@ namespace WebAPIDemoDataAcess.Repositories
             {
                 Customer removeCustomer = _context.Customers.Find(customer.CustomerId);
 
-                if(removeCustomer.Email != null)
+                if (removeCustomer.Email != null)
                 {
                     _context.Customers.Remove(removeCustomer);
                     _context.SaveChanges();
@@ -111,7 +111,7 @@ namespace WebAPIDemoDataAcess.Repositories
             try
             {
                 Customer cust = _context.Customers.Find(customer.CustomerId);
-                if(cust.Email != null)
+                if (cust.Email != null)
                 {
                     cust.Email = customer.Email;
                     cust.FirstName = customer.FirstName;
@@ -125,7 +125,7 @@ namespace WebAPIDemoDataAcess.Repositories
                     status = -99;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 status = -99;
             }

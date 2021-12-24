@@ -20,14 +20,14 @@ namespace WebAPIDemo.Controllers
 
        // GET: api/<ProductsController>
        [HttpGet]
-        public ViewModelProduct Random()
+        public ViewProduct Random()
         {
             //model mapper changes from entity to vp
             //repository calls for a random product
             return ProductMapper.ProductToViewModelProduct((_pr.RandomProduct()));
         }
         [HttpGet()]
-        public List<ViewModelProduct> BottomCards()
+        public List<ViewProduct> BottomCards()
         {
             //model mapper changes from entity to vp
             //repository calls for a random product
